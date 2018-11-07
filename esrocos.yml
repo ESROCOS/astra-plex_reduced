@@ -3,10 +3,18 @@ PROJECT_NAME: tutorial-plex
 deps:
 - types/base: ''
 - types/base_support: ''
+- types/controldev: ''
+
 - drivers/taste/teleops: ''
+
 - plex/teleops: ''
 - plex/blsclient: ''
 - plex/transformer: ''
-- plex/pose_visualization: ''
+- plex/pose_visualisation: ''
+- plex/mc_watchdog: ''
+
 - perception/aruco_marker_detection: ''
+
+- tools/dispatchers: ''
 - tools/data_logger_components: ''
+# - types/vizkit3d: ''
