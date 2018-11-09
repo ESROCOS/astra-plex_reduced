@@ -5,16 +5,17 @@ deps:
 - types/base_support: ''
 - types/controldev: ''
 
-- drivers/taste/teleops: ''
+- drivers/taste/controldev: ''
 
 - plex/teleops: ''
 - plex/blsclient: ''
 - plex/transformer: ''
 - plex/pose_visualisation: ''
 - plex/mc_watchdog: ''
+- gr740/stream_aligner: ''
 
 - perception/aruco_marker_detection: ''
 
 - tools/dispatchers: ''
 - tools/data_logger_components: ''
-# - types/vizkit3d: ''
+- types/vizkit3d: ''
