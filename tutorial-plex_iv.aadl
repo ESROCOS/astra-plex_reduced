@@ -346,7 +346,7 @@ FEATURES
     Taste::InterfaceName => "update";
   };
   RI_commands : REQUIRES SUBPROGRAM ACCESS interfaceview::IV::JoystickCommandDispatcher3::PI_dispatch.others {
-    Taste::coordinates => "954 932";
+    Taste::coordinates => "23275 7804";
     Taste::RCMoperationKind => any;
     Taste::InterfaceName => "commands";
     Taste::labelInheritance => "false";
@@ -360,7 +360,7 @@ END controldevice;
 SYSTEM IMPLEMENTATION controldevice.others
 SUBCOMPONENTS
   device_number : DATA DataView::T_UInt16 {
-    Taste::FS_Default_Value => "2";
+    Taste::FS_Default_Value => "0";
   };
 END controldevice.others;
 
@@ -400,14 +400,14 @@ END RI_joint_commands.others;
 SYSTEM joystick_2_joint_commands
 FEATURES
   PI_commands : PROVIDES SUBPROGRAM ACCESS interfaceview::IV::joystick_2_joint_commands::PI_commands.others {
-    Taste::coordinates => "61874 24417";
+    Taste::coordinates => "61874 32188";
     Taste::RCMoperationKind => sporadic;
     Taste::RCMperiod => 0 ms;
     Taste::Deadline => 0 ms;
     Taste::InterfaceName => "commands";
   };
   RI_joint_commands : REQUIRES SUBPROGRAM ACCESS interfaceview::IV::blsclient::PI_pan_tilt.others {
-    Taste::coordinates => "61874 24417";
+    Taste::coordinates => "92176 31006";
     Taste::RCMoperationKind => any;
     Taste::InterfaceName => "joint_commands";
     Taste::labelInheritance => "false";
@@ -470,14 +470,14 @@ END RI_motion_commands.others;
 SYSTEM joystick_2_motion_command
 FEATURES
   PI_commands : PROVIDES SUBPROGRAM ACCESS interfaceview::IV::joystick_2_motion_command::PI_commands.others {
-    Taste::coordinates => "61802 991";
+    Taste::coordinates => "61802 8140";
     Taste::RCMoperationKind => sporadic;
     Taste::RCMperiod => 0 ms;
     Taste::Deadline => 0 ms;
     Taste::InterfaceName => "commands";
   };
   RI_motion_commands : REQUIRES SUBPROGRAM ACCESS interfaceview::IV::MotionCommandDispatcher::PI_dispatch_motion_command.others {
-    Taste::coordinates => "61802 991";
+    Taste::coordinates => "93724 3873";
     Taste::RCMoperationKind => any;
     Taste::InterfaceName => "motion_commands";
     Taste::labelInheritance => "false";
@@ -491,10 +491,10 @@ END joystick_2_motion_command;
 SYSTEM IMPLEMENTATION joystick_2_motion_command.others
 SUBCOMPONENTS
   max_rotation_speed : DATA DataView::T_Double {
-    Taste::FS_Default_Value => "-25";
+    Taste::FS_Default_Value => "-15";
   };
   max_translation_speed : DATA DataView::T_Double {
-    Taste::FS_Default_Value => "0.04";
+    Taste::FS_Default_Value => "-0.04";
   };
   translation_axis : DATA DataView::T_Int8 {
     Taste::FS_Default_Value => "1";
@@ -560,26 +560,26 @@ END RI_point_turn_mode.others;
 SYSTEM joystick_2_lights
 FEATURES
   PI_commands : PROVIDES SUBPROGRAM ACCESS interfaceview::IV::joystick_2_lights::PI_commands.others {
-    Taste::coordinates => "61664 46306";
+    Taste::coordinates => "61664 54253";
     Taste::RCMoperationKind => sporadic;
     Taste::RCMperiod => 0 ms;
     Taste::Deadline => 0 ms;
     Taste::InterfaceName => "commands";
   };
   RI_white_lights : REQUIRES SUBPROGRAM ACCESS interfaceview::IV::blsclient::PI_setWhiteLights.others {
-    Taste::coordinates => "61664 46306";
+    Taste::coordinates => "91357 57438";
     Taste::RCMoperationKind => any;
     Taste::InterfaceName => "white_lights";
     Taste::labelInheritance => "false";
   };
   RI_uv_lights : REQUIRES SUBPROGRAM ACCESS interfaceview::IV::blsclient::PI_setUVLights.others {
-    Taste::coordinates => "61664 46306";
+    Taste::coordinates => "91357 60658";
     Taste::RCMoperationKind => any;
     Taste::InterfaceName => "uv_lights";
     Taste::labelInheritance => "false";
   };
   RI_point_turn_mode : REQUIRES SUBPROGRAM ACCESS interfaceview::IV::blsclient::PI_setPointTurn.others {
-    Taste::coordinates => "61664 46306";
+    Taste::coordinates => "91357 51009";
     Taste::RCMoperationKind => any;
     Taste::InterfaceName => "point_turn_mode";
     Taste::labelInheritance => "false";
@@ -638,14 +638,14 @@ END PI_shutdown.others;
 SYSTEM motion_command2d_logger
 FEATURES
   PI_sample : PROVIDES SUBPROGRAM ACCESS interfaceview::IV::motion_command2d_logger::PI_sample.others {
-    Taste::coordinates => "123603 416";
+    Taste::coordinates => "123603 7455";
     Taste::RCMoperationKind => sporadic;
     Taste::RCMperiod => 0 ms;
     Taste::Deadline => 0 ms;
     Taste::InterfaceName => "sample";
   };
   PI_shutdown : PROVIDES SUBPROGRAM ACCESS interfaceview::IV::motion_command2d_logger::PI_shutdown.others {
-    Taste::coordinates => "123603 416";
+    Taste::coordinates => "123603 4922";
     Taste::RCMoperationKind => protected;
     Taste::RCMperiod => 0 ms;
     Taste::Deadline => 0 ms;
@@ -718,26 +718,26 @@ END RI_sample2.others;
 SYSTEM JoystickCommandDispatcher3
 FEATURES
   PI_dispatch : PROVIDES SUBPROGRAM ACCESS interfaceview::IV::JoystickCommandDispatcher3::PI_dispatch.others {
-    Taste::coordinates => "27236 422";
+    Taste::coordinates => "27236 7072";
     Taste::RCMoperationKind => sporadic;
     Taste::RCMperiod => 0 ms;
     Taste::Deadline => 0 ms;
     Taste::InterfaceName => "dispatch";
   };
   RI_sample0 : REQUIRES SUBPROGRAM ACCESS interfaceview::IV::joystick_2_motion_command::PI_commands.others {
-    Taste::coordinates => "27236 422";
+    Taste::coordinates => "49465 6407";
     Taste::RCMoperationKind => any;
     Taste::InterfaceName => "sample0";
     Taste::labelInheritance => "false";
   };
   RI_sample1 : REQUIRES SUBPROGRAM ACCESS interfaceview::IV::joystick_2_joint_commands::PI_commands.others {
-    Taste::coordinates => "27236 422";
+    Taste::coordinates => "45303 16191";
     Taste::RCMoperationKind => any;
     Taste::InterfaceName => "sample1";
     Taste::labelInheritance => "false";
   };
   RI_sample2 : REQUIRES SUBPROGRAM ACCESS interfaceview::IV::joystick_2_lights::PI_commands.others {
-    Taste::coordinates => "27236 422";
+    Taste::coordinates => "39484 16191";
     Taste::RCMoperationKind => any;
     Taste::InterfaceName => "sample2";
     Taste::labelInheritance => "false";
@@ -853,49 +853,49 @@ END RI_rigidBodyState.others;
 SYSTEM blsclient
 FEATURES
   PI_motion_command : PROVIDES SUBPROGRAM ACCESS interfaceview::IV::blsclient::PI_motion_command.others {
-    Taste::coordinates => "133349 18711";
+    Taste::coordinates => "133349 20140";
     Taste::RCMoperationKind => sporadic;
     Taste::RCMperiod => 0 ms;
     Taste::Deadline => 0 ms;
     Taste::InterfaceName => "motion_command";
   };
   PI_pan_tilt : PROVIDES SUBPROGRAM ACCESS interfaceview::IV::blsclient::PI_pan_tilt.others {
-    Taste::coordinates => "133349 18711";
+    Taste::coordinates => "133349 24759";
     Taste::RCMoperationKind => sporadic;
     Taste::RCMperiod => 0 ms;
     Taste::Deadline => 0 ms;
     Taste::InterfaceName => "pan_tilt";
   };
   PI_clock : PROVIDES SUBPROGRAM ACCESS interfaceview::IV::blsclient::PI_clock.others {
-    Taste::coordinates => "133349 33798";
+    Taste::coordinates => "146539 18711";
     Taste::RCMoperationKind => cyclic;
     Taste::RCMperiod => 100 ms;
     Taste::Deadline => 0 ms;
     Taste::InterfaceName => "clock";
   };
   PI_setWhiteLights : PROVIDES SUBPROGRAM ACCESS interfaceview::IV::blsclient::PI_setWhiteLights.others {
-    Taste::coordinates => "133349 18711";
+    Taste::coordinates => "140718 33798";
     Taste::RCMoperationKind => sporadic;
     Taste::RCMperiod => 0 ms;
     Taste::Deadline => 0 ms;
     Taste::InterfaceName => "setWhiteLights";
   };
   PI_setUVLights : PROVIDES SUBPROGRAM ACCESS interfaceview::IV::blsclient::PI_setUVLights.others {
-    Taste::coordinates => "133349 18711";
+    Taste::coordinates => "148601 33798";
     Taste::RCMoperationKind => sporadic;
     Taste::RCMperiod => 0 ms;
     Taste::Deadline => 0 ms;
     Taste::InterfaceName => "setUVLights";
   };
   PI_setPointTurn : PROVIDES SUBPROGRAM ACCESS interfaceview::IV::blsclient::PI_setPointTurn.others {
-    Taste::coordinates => "133349 27460";
+    Taste::coordinates => "133349 31110";
     Taste::RCMoperationKind => sporadic;
     Taste::RCMperiod => 0 ms;
     Taste::Deadline => 0 ms;
     Taste::InterfaceName => "setPointTurn";
   };
   RI_rigidBodyState : REQUIRES SUBPROGRAM ACCESS interfaceview::IV::RigidBodyStateDispatcher::PI_dispatch.others {
-    Taste::coordinates => "133349 24932";
+    Taste::coordinates => "166560 25907";
     Taste::RCMoperationKind => any;
     Taste::InterfaceName => "rigidBodyState";
     Taste::labelInheritance => "false";
@@ -960,20 +960,20 @@ END RI_sample1.others;
 SYSTEM MotionCommandDispatcher
 FEATURES
   PI_dispatch_motion_command : PROVIDES SUBPROGRAM ACCESS interfaceview::IV::MotionCommandDispatcher::PI_dispatch_motion_command.others {
-    Taste::coordinates => "96190 326";
+    Taste::coordinates => "96190 3962";
     Taste::RCMoperationKind => sporadic;
     Taste::RCMperiod => 0 ms;
     Taste::Deadline => 0 ms;
     Taste::InterfaceName => "dispatch_motion_command";
   };
   RI_sample : REQUIRES SUBPROGRAM ACCESS interfaceview::IV::motion_command2d_logger::PI_sample.others {
-    Taste::coordinates => "96190 326";
+    Taste::coordinates => "110477 7562";
     Taste::RCMoperationKind => any;
     Taste::InterfaceName => "sample";
     Taste::labelInheritance => "false";
   };
   RI_sample1 : REQUIRES SUBPROGRAM ACCESS interfaceview::IV::blsclient::PI_motion_command.others {
-    Taste::coordinates => "96190 326";
+    Taste::coordinates => "110477 9421";
     Taste::RCMoperationKind => any;
     Taste::InterfaceName => "sample1";
     Taste::labelInheritance => "false";
@@ -1022,7 +1022,7 @@ FEATURES
     Taste::InterfaceName => "trigger";
   };
   RI_sigint : REQUIRES SUBPROGRAM ACCESS interfaceview::IV::motion_command2d_logger::PI_shutdown.others {
-    Taste::coordinates => "112087 381";
+    Taste::coordinates => "120997 4621";
     Taste::RCMoperationKind => any;
     Taste::InterfaceName => "sigint";
     Taste::labelInheritance => "false";
@@ -1192,20 +1192,20 @@ END RI_sample1.others;
 SYSTEM RigidBodyStateDispatcher
 FEATURES
   PI_dispatch : PROVIDES SUBPROGRAM ACCESS interfaceview::IV::RigidBodyStateDispatcher::PI_dispatch.others {
-    Taste::coordinates => "177422 19248";
+    Taste::coordinates => "177422 26026";
     Taste::RCMoperationKind => sporadic;
     Taste::RCMperiod => 0 ms;
     Taste::Deadline => 0 ms;
     Taste::InterfaceName => "dispatch";
   };
   RI_sample : REQUIRES SUBPROGRAM ACCESS interfaceview::IV::vizkit3drobotpose::PI_updateRigidBodyState.others {
-    Taste::coordinates => "177422 19248";
+    Taste::coordinates => "204784 24775";
     Taste::RCMoperationKind => any;
     Taste::InterfaceName => "sample";
     Taste::labelInheritance => "false";
   };
   RI_sample1 : REQUIRES SUBPROGRAM ACCESS interfaceview::IV::gr740_stream_aligner::PI_A.others {
-    Taste::coordinates => "177422 19248";
+    Taste::coordinates => "191957 38725";
     Taste::RCMoperationKind => any;
     Taste::InterfaceName => "sample1";
     Taste::labelInheritance => "false";
@@ -1407,7 +1407,7 @@ CONNECTIONS
     Taste::coordinates => "192478 111458 196262 111458 196262 123268 200134 123268";
   };
   vizkit3drobotpose_PI_updateRigidBodyState_RigidBodyStateDispatcher_RI_sample : SUBPROGRAM ACCESS vizkit3drobotpose.PI_updateRigidBodyState -> RigidBodyStateDispatcher.RI_sample {
-    Taste::coordinates => "177422 19248 167059 19248 167059 16294 239532 16294";
+    Taste::coordinates => "204784 24775 221564 24775 221564 16294 239532 16294";
   };
   vizkit3dmarkerpose_PI_updateRigidBodyState_markermux_RI_update1 : SUBPROGRAM ACCESS vizkit3dmarkerpose.PI_updateRigidBodyState -> markermux.RI_update1 {
     Taste::coordinates => "226410 116635 226410 94565 241692 94565";
@@ -1416,46 +1416,46 @@ CONNECTIONS
     Taste::coordinates => "237199 130283 241032 130283 241032 130302 244812 130302";
   };
   JoystickCommandDispatcher3_PI_dispatch_controldevice_RI_commands : SUBPROGRAM ACCESS JoystickCommandDispatcher3.PI_dispatch -> controldevice.RI_commands {
-    Taste::coordinates => "954 932 -3897 932 -3897 422 27236 422";
+    Taste::coordinates => "23275 7804 25255 7804 25255 7072 27236 7072";
   };
   joystick_2_joint_commands_PI_commands_JoystickCommandDispatcher3_RI_sample1 : SUBPROGRAM ACCESS joystick_2_joint_commands.PI_commands -> JoystickCommandDispatcher3.RI_sample1 {
-    Taste::coordinates => "27236 422 20742 422 20742 24417 61874 24417";
+    Taste::coordinates => "45303 16191 45303 32188 61874 32188";
   };
   blsclient_PI_pan_tilt_joystick_2_joint_commands_RI_joint_commands : SUBPROGRAM ACCESS blsclient.PI_pan_tilt -> joystick_2_joint_commands.RI_joint_commands {
-    Taste::coordinates => "61874 24417 51405 24417 51405 16148 133349 16148 133349 18711";
+    Taste::coordinates => "92176 31006 103272 31006 103272 24759 133349 24759";
   };
   joystick_2_motion_command_PI_commands_JoystickCommandDispatcher3_RI_sample0 : SUBPROGRAM ACCESS joystick_2_motion_command.PI_commands -> JoystickCommandDispatcher3.RI_sample0 {
-    Taste::coordinates => "27236 422 20587 422 20587 991 61802 991";
+    Taste::coordinates => "49465 6407 55938 6407 55938 8140 61802 8140";
   };
   MotionCommandDispatcher_PI_dispatch_motion_command_joystick_2_motion_command_RI_motion_commands : SUBPROGRAM ACCESS MotionCommandDispatcher.PI_dispatch_motion_command -> joystick_2_motion_command.RI_motion_commands {
-    Taste::coordinates => "61802 991 56934 991 56934 326 96190 326";
+    Taste::coordinates => "93724 3873 95739 3873 95739 3962 96190 3962";
   };
   joystick_2_lights_PI_commands_JoystickCommandDispatcher3_RI_sample2 : SUBPROGRAM ACCESS joystick_2_lights.PI_commands -> JoystickCommandDispatcher3.RI_sample2 {
-    Taste::coordinates => "27236 422 20824 422 20824 46306 61664 46306";
+    Taste::coordinates => "39484 16191 39484 54253 61664 54253";
   };
   blsclient_PI_setWhiteLights_joystick_2_lights_RI_white_lights : SUBPROGRAM ACCESS blsclient.PI_setWhiteLights -> joystick_2_lights.RI_white_lights {
-    Taste::coordinates => "61664 46306 51174 46306 51174 18711 133349 18711";
+    Taste::coordinates => "91357 57438 140718 57438 140718 33798";
   };
   blsclient_PI_setUVLights_joystick_2_lights_RI_uv_lights : SUBPROGRAM ACCESS blsclient.PI_setUVLights -> joystick_2_lights.RI_uv_lights {
-    Taste::coordinates => "61664 46306 51174 46306 51174 18711 133349 18711";
+    Taste::coordinates => "91357 60658 148601 60658 148601 33798";
   };
   blsclient_PI_setPointTurn_joystick_2_lights_RI_point_turn_mode : SUBPROGRAM ACCESS blsclient.PI_setPointTurn -> joystick_2_lights.RI_point_turn_mode {
-    Taste::coordinates => "61664 46306 51174 46306 51174 27460 133349 27460";
+    Taste::coordinates => "91357 51009 112368 51009 112368 31110 133349 31110";
   };
   motion_command2d_logger_PI_sample_MotionCommandDispatcher_RI_sample : SUBPROGRAM ACCESS motion_command2d_logger.PI_sample -> MotionCommandDispatcher.RI_sample {
-    Taste::coordinates => "96190 326 88264 326 88264 416 123603 416";
+    Taste::coordinates => "110477 7562 116878 7562 116878 7455 123603 7455";
   };
   motion_command2d_logger_PI_shutdown_signal_handler_RI_sigint : SUBPROGRAM ACCESS motion_command2d_logger.PI_shutdown -> signal_handler.RI_sigint {
-    Taste::coordinates => "112087 381 105751 381 105751 -1052 123603 -1052 123603 416";
+    Taste::coordinates => "120997 4621 121345 4621 121345 4922 123603 4922";
   };
   blsclient_PI_motion_command_MotionCommandDispatcher_RI_sample1 : SUBPROGRAM ACCESS blsclient.PI_motion_command -> MotionCommandDispatcher.RI_sample1 {
-    Taste::coordinates => "96190 326 89153 326 89153 18711 133349 18711";
+    Taste::coordinates => "110477 9421 122328 9421 122328 20140 133349 20140";
   };
   RigidBodyStateDispatcher_PI_dispatch_blsclient_RI_rigidBodyState : SUBPROGRAM ACCESS RigidBodyStateDispatcher.PI_dispatch -> blsclient.RI_rigidBodyState {
-    Taste::coordinates => "133349 24932 129121 24932 129121 19248 177422 19248";
+    Taste::coordinates => "166560 25907 172095 25907 172095 26026 177422 26026";
   };
   gr740_stream_aligner_PI_A_RigidBodyStateDispatcher_RI_sample1 : SUBPROGRAM ACCESS gr740_stream_aligner.PI_A -> RigidBodyStateDispatcher.RI_sample1 {
-    Taste::coordinates => "177422 19248 107626 19248 107626 100374";
+    Taste::coordinates => "191957 38725 191957 68518 107626 68518 107626 100374";
   };
 END interfaceview.others;
 

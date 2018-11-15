@@ -24,7 +24,15 @@ plugins:
       modelPath: stim300.stl
       frame:
           base: world_osg
-          position: [1, 1, 1]
+          position: [1, 1, 10000]
+          rotation: [1, 0, 0, 0]
+          # rotation quaternion in order [w, x, y, z]
+    - type: RigidBodyStateVisualization
+      name: mbs2
+      modelPath: stim300.stl
+      frame:
+          base: world_osg
+          position: [1, 1, 10000]
           rotation: [1, 0, 0, 0]
           # rotation quaternion in order [w, x, y, z]
     - type: ModelVisualization
