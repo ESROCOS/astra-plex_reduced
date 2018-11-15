@@ -31,9 +31,11 @@ esrocos_init()
 ########### FOR INTEGRATION PROJECTS ##############
 
 #uncomment if you want to add dependencies for the build process (only required in integration projects)
-esrocos_add_dependency(PARTITION x86_partition
-	MODULES controldev eigen3 plex-pose_visualisation data_logger mc_watchdog base_support opencv aruco)
+esrocos_add_dependency(PARTITION remote
+	MODULES controldev eigen3 plex-pose_visualisation data_logger base_support opencv aruco)
 
+esrocos_add_dependency(PARTITION onboard
+	MODULES eigen3 base_support opencv aruco)
 #esrocos_add_dependency(PARTITION <Name Of Partition>
 #                       MODULES   <PKG-Config findable module>[,secondmodule,thirdmodule...])
 
