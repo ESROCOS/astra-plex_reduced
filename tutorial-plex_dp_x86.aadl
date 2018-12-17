@@ -23,7 +23,7 @@ DEVICE generic_sockets_ip_pohic
 EXTENDS ocarina_drivers::generic_sockets_ip
 FEATURES
   link : REFINED TO REQUIRES BUS ACCESS ocarina_buses::ip.i {
-    Taste::coordinates => "118294 114013";
+    Taste::coordinates => "225277 114013";
   };
 PROPERTIES
   Taste::Interface_Coordinates => "82824 168664" APPLIES TO link;
@@ -76,28 +76,27 @@ END deploymentview::DV::Node3;
 PACKAGE deploymentview::DV
 PUBLIC
 
+WITH interfaceview::IV::aruco_marker_detector;
 WITH interfaceview::IV::blsclient;
 WITH interfaceview::IV::Transformer;
 WITH interfaceview::IV::gr740_stream_aligner;
 WITH interfaceview::IV::RigidBodyStateDispatcher;
-WITH ocarina_processors_arm;
+WITH ocarina_processors_x86;
 WITH deploymentview::DV::Node2;
-WITH ocarina_buses;
 WITH interfaceview::IV::controldevice;
 WITH interfaceview::IV::joystick_2_joint_commands;
-WITH interfaceview::IV::joystick_2_motion_command;
-WITH interfaceview::IV::joystick_2_lights;
-WITH interfaceview::IV::motion_command2d_logger;
-WITH interfaceview::IV::JoystickCommandDispatcher3;
-WITH interfaceview::IV::MotionCommandDispatcher;
-WITH interfaceview::IV::signal_handler;
-WITH interfaceview::IV::aruco_marker_detector;
 WITH interfaceview::IV::vizkit3drobotpose;
 WITH interfaceview::IV::vizkit3dmarkerpose;
+WITH interfaceview::IV::joystick_2_motion_command;
 WITH interfaceview::IV::vizkit3dmarkerpose2;
+WITH interfaceview::IV::joystick_2_lights;
+WITH interfaceview::IV::motion_command2d_logger;
+WITH interfaceview::IV::signal_handler;
 WITH interfaceview::IV::markermux;
-WITH ocarina_processors_x86;
+WITH interfaceview::IV::MotionCommandDispatcher;
+WITH interfaceview::IV::JoystickCommandDispatcher3;
 WITH deploymentview::DV::Node3;
+WITH ocarina_buses;
 WITH Taste;
 WITH Deployment;
 WITH interfaceview::IV;
@@ -109,6 +108,9 @@ END Node2;
 
 SYSTEM IMPLEMENTATION Node2.others
 SUBCOMPONENTS
+  IV_aruco_marker_detector : SYSTEM interfaceview::IV::aruco_marker_detector::aruco_marker_detector.others {
+    Taste::FunctionName => "aruco_marker_detector";
+  };
   IV_blsclient : SYSTEM interfaceview::IV::blsclient::blsclient.others {
     Taste::FunctionName => "blsclient";
   };
@@ -122,24 +124,25 @@ SUBCOMPONENTS
     Taste::FunctionName => "RigidBodyStateDispatcher";
   };
   onboard : PROCESS deploymentview::DV::Node2::onboard.others {
-    Taste::coordinates => "107343 19418 152055 101040";
+    Taste::coordinates => "218516 15310 254658 98304";
     Deployment::Port_Number => 0;
   };
-  stm32f429_discovery_gnat2017 : PROCESSOR ocarina_processors_arm::stm32f429_discovery.gnat2017 {
-    Taste::coordinates => "106251 6845 162701 105386";
+  x86_linux : PROCESSOR ocarina_processors_x86::x86.linux {
+    Taste::coordinates => "217657 4183 263737 100168";
   };
   generic_sockets_ip_pohic : DEVICE deploymentview::DV::Node2::generic_sockets_ip_pohic.others {
-    Taste::coordinates => "118294 107030 133818 120995";
+    Taste::coordinates => "225277 107030 240801 120995";
   };
 CONNECTIONS
   generic_sockets_ip_pohic_ip_i_link : BUS ACCESS generic_sockets_ip_pohic_ip_i -> generic_sockets_ip_pohic.link;
 PROPERTIES
+  Taste::APLC_Binding => (reference (onboard)) APPLIES TO IV_aruco_marker_detector;
   Taste::APLC_Binding => (reference (onboard)) APPLIES TO IV_blsclient;
   Taste::APLC_Binding => (reference (onboard)) APPLIES TO IV_Transformer;
   Taste::APLC_Binding => (reference (onboard)) APPLIES TO IV_gr740_stream_aligner;
   Taste::APLC_Binding => (reference (onboard)) APPLIES TO IV_RigidBodyStateDispatcher;
-  Actual_Processor_Binding => (reference (stm32f429_discovery_gnat2017)) APPLIES TO onboard;
-  Actual_Processor_Binding => (reference (stm32f429_discovery_gnat2017)) APPLIES TO generic_sockets_ip_pohic;
+  Actual_Processor_Binding => (reference (x86_linux)) APPLIES TO onboard;
+  Actual_Processor_Binding => (reference (x86_linux)) APPLIES TO generic_sockets_ip_pohic;
 END Node2.others;
 
 SYSTEM Node3
@@ -155,8 +158,17 @@ SUBCOMPONENTS
   IV_joystick_2_joint_commands : SYSTEM interfaceview::IV::joystick_2_joint_commands::joystick_2_joint_commands.others {
     Taste::FunctionName => "joystick_2_joint_commands";
   };
+  IV_vizkit3drobotpose : SYSTEM interfaceview::IV::vizkit3drobotpose::vizkit3drobotpose.others {
+    Taste::FunctionName => "vizkit3drobotpose";
+  };
+  IV_vizkit3dmarkerpose : SYSTEM interfaceview::IV::vizkit3dmarkerpose::vizkit3dmarkerpose.others {
+    Taste::FunctionName => "vizkit3dmarkerpose";
+  };
   IV_joystick_2_motion_command : SYSTEM interfaceview::IV::joystick_2_motion_command::joystick_2_motion_command.others {
     Taste::FunctionName => "joystick_2_motion_command";
+  };
+  IV_vizkit3dmarkerpose2 : SYSTEM interfaceview::IV::vizkit3dmarkerpose2::vizkit3dmarkerpose2.others {
+    Taste::FunctionName => "vizkit3dmarkerpose2";
   };
   IV_joystick_2_lights : SYSTEM interfaceview::IV::joystick_2_lights::joystick_2_lights.others {
     Taste::FunctionName => "joystick_2_lights";
@@ -164,36 +176,24 @@ SUBCOMPONENTS
   IV_motion_command2d_logger : SYSTEM interfaceview::IV::motion_command2d_logger::motion_command2d_logger.others {
     Taste::FunctionName => "motion_command2d_logger";
   };
-  IV_JoystickCommandDispatcher3 : SYSTEM interfaceview::IV::JoystickCommandDispatcher3::JoystickCommandDispatcher3.others {
-    Taste::FunctionName => "JoystickCommandDispatcher3";
-  };
-  IV_MotionCommandDispatcher : SYSTEM interfaceview::IV::MotionCommandDispatcher::MotionCommandDispatcher.others {
-    Taste::FunctionName => "MotionCommandDispatcher";
-  };
   IV_signal_handler : SYSTEM interfaceview::IV::signal_handler::signal_handler.others {
     Taste::FunctionName => "signal_handler";
-  };
-  IV_aruco_marker_detector : SYSTEM interfaceview::IV::aruco_marker_detector::aruco_marker_detector.others {
-    Taste::FunctionName => "aruco_marker_detector";
-  };
-  IV_vizkit3drobotpose : SYSTEM interfaceview::IV::vizkit3drobotpose::vizkit3drobotpose.others {
-    Taste::FunctionName => "vizkit3drobotpose";
-  };
-  IV_vizkit3dmarkerpose : SYSTEM interfaceview::IV::vizkit3dmarkerpose::vizkit3dmarkerpose.others {
-    Taste::FunctionName => "vizkit3dmarkerpose";
-  };
-  IV_vizkit3dmarkerpose2 : SYSTEM interfaceview::IV::vizkit3dmarkerpose2::vizkit3dmarkerpose2.others {
-    Taste::FunctionName => "vizkit3dmarkerpose2";
   };
   IV_markermux : SYSTEM interfaceview::IV::markermux::markermux.others {
     Taste::FunctionName => "markermux";
   };
+  IV_MotionCommandDispatcher : SYSTEM interfaceview::IV::MotionCommandDispatcher::MotionCommandDispatcher.others {
+    Taste::FunctionName => "MotionCommandDispatcher";
+  };
+  IV_JoystickCommandDispatcher3 : SYSTEM interfaceview::IV::JoystickCommandDispatcher3::JoystickCommandDispatcher3.others {
+    Taste::FunctionName => "JoystickCommandDispatcher3";
+  };
   remote : PROCESS deploymentview::DV::Node3::remote.others {
-    Taste::coordinates => "4872 22230 45147 93379";
+    Taste::coordinates => "5685 22511 47007 85902";
     Deployment::Port_Number => 0;
   };
   x86_linux : PROCESSOR ocarina_processors_x86::x86.linux {
-    Taste::coordinates => "2812 9108 52700 96360";
+    Taste::coordinates => "3400 6079 55052 96638";
   };
   generic_sockets_ip_pohic : DEVICE deploymentview::DV::Node3::generic_sockets_ip_pohic.others {
     Taste::coordinates => "12660 98263 35934 110050";
@@ -203,17 +203,16 @@ CONNECTIONS
 PROPERTIES
   Taste::APLC_Binding => (reference (remote)) APPLIES TO IV_controldevice;
   Taste::APLC_Binding => (reference (remote)) APPLIES TO IV_joystick_2_joint_commands;
-  Taste::APLC_Binding => (reference (remote)) APPLIES TO IV_joystick_2_motion_command;
-  Taste::APLC_Binding => (reference (remote)) APPLIES TO IV_joystick_2_lights;
-  Taste::APLC_Binding => (reference (remote)) APPLIES TO IV_motion_command2d_logger;
-  Taste::APLC_Binding => (reference (remote)) APPLIES TO IV_JoystickCommandDispatcher3;
-  Taste::APLC_Binding => (reference (remote)) APPLIES TO IV_MotionCommandDispatcher;
-  Taste::APLC_Binding => (reference (remote)) APPLIES TO IV_signal_handler;
-  Taste::APLC_Binding => (reference (remote)) APPLIES TO IV_aruco_marker_detector;
   Taste::APLC_Binding => (reference (remote)) APPLIES TO IV_vizkit3drobotpose;
   Taste::APLC_Binding => (reference (remote)) APPLIES TO IV_vizkit3dmarkerpose;
+  Taste::APLC_Binding => (reference (remote)) APPLIES TO IV_joystick_2_motion_command;
   Taste::APLC_Binding => (reference (remote)) APPLIES TO IV_vizkit3dmarkerpose2;
+  Taste::APLC_Binding => (reference (remote)) APPLIES TO IV_joystick_2_lights;
+  Taste::APLC_Binding => (reference (remote)) APPLIES TO IV_motion_command2d_logger;
+  Taste::APLC_Binding => (reference (remote)) APPLIES TO IV_signal_handler;
   Taste::APLC_Binding => (reference (remote)) APPLIES TO IV_markermux;
+  Taste::APLC_Binding => (reference (remote)) APPLIES TO IV_MotionCommandDispatcher;
+  Taste::APLC_Binding => (reference (remote)) APPLIES TO IV_JoystickCommandDispatcher3;
   Actual_Processor_Binding => (reference (x86_linux)) APPLIES TO remote;
   Actual_Processor_Binding => (reference (x86_linux)) APPLIES TO generic_sockets_ip_pohic;
 END Node3.others;
@@ -224,24 +223,23 @@ END deploymentview;
 SYSTEM IMPLEMENTATION deploymentview.others
 SUBCOMPONENTS
   Node2 : SYSTEM Node2.others {
-    Taste::coordinates => "104973 936 165775 128386";
-  };
-  ip_i : BUS ocarina_buses::ip.i {
-    Taste::coordinates => "82824 155807 196832 195890";
+    Taste::coordinates => "211956 936 272758 128386";
   };
   Node3 : SYSTEM Node3.others {
     Taste::coordinates => "1024 1087 55730 113181";
   };
+  ip_i : BUS ocarina_buses::ip.i {
+    Taste::coordinates => "82824 155807 196832 195890";
+  };
   interfaceview : SYSTEM interfaceview::IV::interfaceview.others;
 CONNECTIONS
   Connection2 : BUS ACCESS ip_i -> Node2.generic_sockets_ip_pohic_ip_i {
-    Taste::coordinates => "118294 114013 67026 114013 67026 168664 82824 168664";
+    Taste::coordinates => "225277 114013 67026 114013 67026 168664 82824 168664";
   };
   Connection1 : BUS ACCESS ip_i -> Node3.generic_sockets_ip_pohic_ip_i {
     Taste::coordinates => "23211 110050 23211 175849 82824 175849";
   };
 PROPERTIES
-  Actual_Connection_Binding => (reference (ip_i)) APPLIES TO interfaceview.gr740_stream_aligner_PI_B_aruco_marker_detector_RI_pose;
   Actual_Connection_Binding => (reference (ip_i)) APPLIES TO interfaceview.markermux_PI_dispatch_Transformer_RI_absoluteMarkerPose;
   Actual_Connection_Binding => (reference (ip_i)) APPLIES TO interfaceview.vizkit3drobotpose_PI_updateRigidBodyState_RigidBodyStateDispatcher_RI_sample;
   Actual_Connection_Binding => (reference (ip_i)) APPLIES TO interfaceview.blsclient_PI_pan_tilt_joystick_2_joint_commands_RI_joint_commands;

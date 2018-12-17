@@ -1,18 +1,22 @@
 # Window (title, geometry)
 window:
     title: taste-vizkit3d - body state visualization test
-    x: 100
-    y: 150
+    x: 200
+    y: 300
 
 # 3D widget
 widget:
     manipulator: TRACKBALL_MANIPULATOR
+    background: [200,160,30]
+    axes: False
+    transformer: False
 
 # Plugins
 plugins:
     - type: RigidBodyStateVisualization
       name: rbs
       modelPath: stim300.stl
+      enabled: False
       frame:
           base: world_osg
           position: [1, 1, 1]
@@ -22,6 +26,7 @@ plugins:
     - type: RigidBodyStateVisualization
       name: mbs
       modelPath: stim300.stl
+      enabled: False
       frame:
           base: world_osg
           position: [1, 1, 10000]
@@ -30,6 +35,7 @@ plugins:
     - type: RigidBodyStateVisualization
       name: mbs2
       modelPath: stim300.stl
+      enabled: False
       frame:
           base: world_osg
           position: [1, 1, 10000]
