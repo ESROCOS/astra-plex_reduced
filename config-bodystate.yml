@@ -15,7 +15,7 @@ widget:
 plugins:
     - type: RigidBodyStateVisualization
       name: rbs
-      modelPath: stim300.stl
+      modelPath: bridget.stl
       enabled: False
       frame:
           base: world_osg
