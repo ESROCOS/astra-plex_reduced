@@ -354,7 +354,7 @@ FEATURES
 PROPERTIES
   Source_Language => (CPP);
   Taste::Active_Interfaces => any;
-  Source_Text => ("/root/esrocos_workspace/install/drivers/taste/controldev/controldevice.zip");
+  Source_Text => ("/root/esrocos_workspace/install/share/taste_components/controldev/controldevice.zip");
 END controldevice;
 
 SYSTEM IMPLEMENTATION controldevice.others
@@ -415,7 +415,7 @@ FEATURES
 PROPERTIES
   Source_Language => (CPP);
   Taste::Active_Interfaces => any;
-  Source_Text => ("/root/esrocos_workspace/install/drivers/taste/controldev/joystick_2_joint_commands.zip");
+  Source_Text => ("/root/esrocos_workspace/install/share/taste_components/controldev/joystick_2_joint_commands.zip");
 END joystick_2_joint_commands;
 
 SYSTEM IMPLEMENTATION joystick_2_joint_commands.others
@@ -485,7 +485,7 @@ FEATURES
 PROPERTIES
   Source_Language => (CPP);
   Taste::Active_Interfaces => any;
-  Source_Text => ("/root/esrocos_workspace/install/drivers/taste/controldev/joystick_2_motion_command.zip");
+  Source_Text => ("/root/esrocos_workspace/install/share/taste_components/controldev/joystick_2_motion_command.zip");
 END joystick_2_motion_command;
 
 SYSTEM IMPLEMENTATION joystick_2_motion_command.others
@@ -560,26 +560,26 @@ END RI_point_turn_mode.others;
 SYSTEM joystick_2_lights
 FEATURES
   PI_commands : PROVIDES SUBPROGRAM ACCESS interfaceview::IV::joystick_2_lights::PI_commands.others {
-    Taste::coordinates => "61664 54253";
+    Taste::coordinates => "61792 54253";
     Taste::RCMoperationKind => sporadic;
     Taste::RCMperiod => 0 ms;
     Taste::Deadline => 0 ms;
     Taste::InterfaceName => "commands";
   };
   RI_white_lights : REQUIRES SUBPROGRAM ACCESS interfaceview::IV::blsclient::PI_setWhiteLights.others {
-    Taste::coordinates => "91357 57438";
+    Taste::coordinates => "91485 57438";
     Taste::RCMoperationKind => any;
     Taste::InterfaceName => "white_lights";
     Taste::labelInheritance => "false";
   };
   RI_uv_lights : REQUIRES SUBPROGRAM ACCESS interfaceview::IV::blsclient::PI_setUVLights.others {
-    Taste::coordinates => "91357 60658";
+    Taste::coordinates => "91485 60658";
     Taste::RCMoperationKind => any;
     Taste::InterfaceName => "uv_lights";
     Taste::labelInheritance => "false";
   };
   RI_point_turn_mode : REQUIRES SUBPROGRAM ACCESS interfaceview::IV::blsclient::PI_setPointTurn.others {
-    Taste::coordinates => "91357 51009";
+    Taste::coordinates => "91485 51009";
     Taste::RCMoperationKind => any;
     Taste::InterfaceName => "point_turn_mode";
     Taste::labelInheritance => "false";
@@ -587,7 +587,7 @@ FEATURES
 PROPERTIES
   Source_Language => (CPP);
   Taste::Active_Interfaces => any;
-  Source_Text => ("/root/esrocos_workspace/install/drivers/taste/controldev/joystick_2_lights.zip");
+  Source_Text => ("/root/esrocos_workspace/install/share/taste_components/controldev/joystick_2_lights.zip");
 END joystick_2_lights;
 
 SYSTEM IMPLEMENTATION joystick_2_lights.others
@@ -1367,7 +1367,7 @@ SUBCOMPONENTS
     Taste::coordinates => "61802 991 93724 23552";
   };
   joystick_2_lights : SYSTEM interfaceview::IV::joystick_2_lights::joystick_2_lights.others {
-    Taste::coordinates => "61664 46306 91357 63228";
+    Taste::coordinates => "61792 46306 91485 63228";
   };
   motion_command2d_logger : SYSTEM interfaceview::IV::motion_command2d_logger::motion_command2d_logger.others {
     Taste::coordinates => "123603 416 175448 15056";
@@ -1431,16 +1431,16 @@ CONNECTIONS
     Taste::coordinates => "93724 3873 95739 3873 95739 3962 96190 3962";
   };
   joystick_2_lights_PI_commands_JoystickCommandDispatcher3_RI_sample2 : SUBPROGRAM ACCESS joystick_2_lights.PI_commands -> JoystickCommandDispatcher3.RI_sample2 {
-    Taste::coordinates => "39484 16191 39484 54253 61664 54253";
+    Taste::coordinates => "39484 16191 39484 54253 61792 54253";
   };
   blsclient_PI_setWhiteLights_joystick_2_lights_RI_white_lights : SUBPROGRAM ACCESS blsclient.PI_setWhiteLights -> joystick_2_lights.RI_white_lights {
-    Taste::coordinates => "91357 57438 140718 57438 140718 33798";
+    Taste::coordinates => "91485 57438 140718 57438 140718 33798";
   };
   blsclient_PI_setUVLights_joystick_2_lights_RI_uv_lights : SUBPROGRAM ACCESS blsclient.PI_setUVLights -> joystick_2_lights.RI_uv_lights {
-    Taste::coordinates => "91357 60658 148601 60658 148601 33798";
+    Taste::coordinates => "91485 60658 148601 60658 148601 33798";
   };
   blsclient_PI_setPointTurn_joystick_2_lights_RI_point_turn_mode : SUBPROGRAM ACCESS blsclient.PI_setPointTurn -> joystick_2_lights.RI_point_turn_mode {
-    Taste::coordinates => "91357 51009 112368 51009 112368 31110 133349 31110";
+    Taste::coordinates => "91485 51009 112368 51009 112368 31110 133349 31110";
   };
   motion_command2d_logger_PI_sample_MotionCommandDispatcher_RI_sample : SUBPROGRAM ACCESS motion_command2d_logger.PI_sample -> MotionCommandDispatcher.RI_sample {
     Taste::coordinates => "110477 7562 116878 7562 116878 7455 123603 7455";
