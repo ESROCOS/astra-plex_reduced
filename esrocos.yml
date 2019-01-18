@@ -6,15 +6,12 @@ deps:
 - types/controldev: ''
 
 - drivers/taste/controldev: ''
+- gr740/stream_aligner: ''
+- perception/aruco_marker_detection: ''
 
-- plex/teleops: ''
 - plex/blsclient: ''
 - plex/transformer: ''
 - plex/pose_visualisation: ''
-- plex/mc_watchdog: ''
-- gr740/stream_aligner: ''
-
-- perception/aruco_marker_detection: ''
 
 - tools/dispatchers: ''
 - tools/data_logger_components: ''
