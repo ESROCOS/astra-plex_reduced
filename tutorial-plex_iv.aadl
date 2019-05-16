@@ -1123,7 +1123,7 @@ FEATURES
 PROPERTIES
   Source_Language => (CPP);
   Taste::Active_Interfaces => any;
-  Source_Text => ("../install/share/taste_components/stream_aligner/gr740/gr740_stream_aligner.zip");
+  Source_Text => ("/home/taste/esrocos_workspace/install/share/taste_components/stream_aligner/gr740/gr740_stream_aligner.zip");
 END gr740_stream_aligner;
 
 SYSTEM IMPLEMENTATION gr740_stream_aligner.others
