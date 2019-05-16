@@ -50,7 +50,7 @@ FEATURES
 PROPERTIES
   Source_Language => (CPP);
   Taste::Active_Interfaces => any;
-  Source_Text => ("/root/esrocos_workspace/install/share/taste_components/aruco_marker_detection/aruco_marker_detector.zip");
+  Source_Text => ("/home/taste/esrocos_workspace/install/share/taste_components/aruco_marker_detection/aruco_marker_detector.zip");
 END aruco_marker_detector;
 
 SYSTEM IMPLEMENTATION aruco_marker_detector.others
@@ -141,7 +141,7 @@ FEATURES
 PROPERTIES
   Source_Language => (CPP);
   Taste::Active_Interfaces => any;
-  Source_Text => ("/root/esrocos_workspace/install/share/taste_components/plex-transformer/transformer.zip");
+  Source_Text => ("/home/taste/esrocos_workspace/install/share/taste_components/plex-transformer/transformer.zip");
 END Transformer;
 
 SYSTEM IMPLEMENTATION Transformer.others
@@ -150,10 +150,10 @@ SUBCOMPONENTS
     Taste::FS_Default_Value => "compiler-option:""-DOROCOS_TARGET=gnulinux""";
   };
   includeOrocos : DATA DataView::Taste_directive {
-    Taste::FS_Default_Value => "compiler-option:""-I/root/esrocos_workspace/install/include/orocos/""";
+    Taste::FS_Default_Value => "compiler-option:""-I/home/taste/esrocos_workspace/install/include/orocos/""";
   };
   includeBoost : DATA DataView::Taste_directive {
-    Taste::FS_Default_Value => "compiler-option:""-I/root/esrocos_workspace/plex/transformer/boost_1_68_0/""";
+    Taste::FS_Default_Value => "compiler-option:""-I/home/taste/esrocos_workspace/plex/transformer/boost_1_68_0/""";
   };
 END Transformer.others;
 
@@ -191,7 +191,7 @@ FEATURES
 PROPERTIES
   Source_Language => (CPP);
   Taste::Active_Interfaces => any;
-  Source_Text => ("/root/esrocos_workspace/install/share/taste_components/plex-pose_visualisation/vizkit3drobotpose.zip");
+  Source_Text => ("/home/taste/esrocos_workspace/install/share/taste_components/plex-pose_visualisation/vizkit3drobotpose.zip");
 END vizkit3drobotpose;
 
 SYSTEM IMPLEMENTATION vizkit3drobotpose.others
@@ -241,7 +241,7 @@ FEATURES
 PROPERTIES
   Source_Language => (CPP);
   Taste::Active_Interfaces => enabled;
-  Source_Text => ("/root/esrocos_workspace/install/share/taste_components/plex-pose_visualisation/vizkit3dmarkerpose.zip");
+  Source_Text => ("/home/taste/esrocos_workspace/install/share/taste_components/plex-pose_visualisation/vizkit3dmarkerpose.zip");
 END vizkit3dmarkerpose;
 
 SYSTEM IMPLEMENTATION vizkit3dmarkerpose.others
@@ -291,7 +291,7 @@ FEATURES
 PROPERTIES
   Source_Language => (CPP);
   Taste::Active_Interfaces => enabled;
-  Source_Text => ("/root/esrocos_workspace/install/share/taste_components/plex-pose_visualisation/vizkit3dmarkerpose2.zip");
+  Source_Text => ("/home/taste/esrocos_workspace/install/share/taste_components/plex-pose_visualisation/vizkit3dmarkerpose2.zip");
 END vizkit3dmarkerpose2;
 
 SYSTEM IMPLEMENTATION vizkit3dmarkerpose2.others
@@ -354,7 +354,7 @@ FEATURES
 PROPERTIES
   Source_Language => (CPP);
   Taste::Active_Interfaces => any;
-  Source_Text => ("/root/esrocos_workspace/install/share/taste_components/controldev/controldevice.zip");
+  Source_Text => ("/home/taste/esrocos_workspace/install/share/taste_components/controldev/controldevice.zip");
 END controldevice;
 
 SYSTEM IMPLEMENTATION controldevice.others
@@ -415,7 +415,7 @@ FEATURES
 PROPERTIES
   Source_Language => (CPP);
   Taste::Active_Interfaces => any;
-  Source_Text => ("/root/esrocos_workspace/install/share/taste_components/controldev/joystick_2_joint_commands.zip");
+  Source_Text => ("/home/taste/esrocos_workspace/install/share/taste_components/controldev/joystick_2_joint_commands.zip");
 END joystick_2_joint_commands;
 
 SYSTEM IMPLEMENTATION joystick_2_joint_commands.others
@@ -485,7 +485,7 @@ FEATURES
 PROPERTIES
   Source_Language => (CPP);
   Taste::Active_Interfaces => any;
-  Source_Text => ("/root/esrocos_workspace/install/share/taste_components/controldev/joystick_2_motion_command.zip");
+  Source_Text => ("/home/taste/esrocos_workspace/install/share/taste_components/controldev/joystick_2_motion_command.zip");
 END joystick_2_motion_command;
 
 SYSTEM IMPLEMENTATION joystick_2_motion_command.others
@@ -587,7 +587,7 @@ FEATURES
 PROPERTIES
   Source_Language => (CPP);
   Taste::Active_Interfaces => any;
-  Source_Text => ("/root/esrocos_workspace/install/share/taste_components/controldev/joystick_2_lights.zip");
+  Source_Text => ("/home/taste/esrocos_workspace/install/share/taste_components/controldev/joystick_2_lights.zip");
 END joystick_2_lights;
 
 SYSTEM IMPLEMENTATION joystick_2_lights.others
@@ -654,7 +654,7 @@ FEATURES
 PROPERTIES
   Source_Language => (CPP);
   Taste::Active_Interfaces => any;
-  Source_Text => ("/root/esrocos_workspace/install/share/taste_components/data_loggers/motion_command2d_logger.zip");
+  Source_Text => ("/home/taste/esrocos_workspace/install/share/taste_components/data_loggers/motion_command2d_logger.zip");
 END motion_command2d_logger;
 
 SYSTEM IMPLEMENTATION motion_command2d_logger.others
@@ -745,7 +745,7 @@ FEATURES
 PROPERTIES
   Source_Language => (C);
   Taste::Active_Interfaces => any;
-  Source_Text => ("/root/esrocos_workspace/install/share/taste_components/dispatchers/joystickcommanddispatcher3.zip");
+  Source_Text => ("/home/taste/esrocos_workspace/install/share/taste_components/dispatchers/joystickcommanddispatcher3.zip");
 END JoystickCommandDispatcher3;
 
 SYSTEM IMPLEMENTATION JoystickCommandDispatcher3.others
@@ -903,7 +903,7 @@ FEATURES
 PROPERTIES
   Source_Language => (CPP);
   Taste::Active_Interfaces => any;
-  Source_Text => ("/root/esrocos_workspace/install/share/taste_components/plex-blsclient/blsclient.zip");
+  Source_Text => ("/home/taste/esrocos_workspace/install/share/taste_components/plex-blsclient/blsclient.zip");
 END blsclient;
 
 SYSTEM IMPLEMENTATION blsclient.others
@@ -981,7 +981,7 @@ FEATURES
 PROPERTIES
   Source_Language => (C);
   Taste::Active_Interfaces => any;
-  Source_Text => ("/root/esrocos_workspace/install/share/taste_components/dispatchers/motioncommanddispatcher.zip");
+  Source_Text => ("/home/taste/esrocos_workspace/install/share/taste_components/dispatchers/motioncommanddispatcher.zip");
 END MotionCommandDispatcher;
 
 SYSTEM IMPLEMENTATION MotionCommandDispatcher.others
@@ -1123,7 +1123,7 @@ FEATURES
 PROPERTIES
   Source_Language => (CPP);
   Taste::Active_Interfaces => any;
-  Source_Text => ("ls ../install/share/taste_components/stream_aligner/gr740/gr740_stream_aligner.zip");
+  Source_Text => ("../install/share/taste_components/stream_aligner/gr740/gr740_stream_aligner.zip");
 END gr740_stream_aligner;
 
 SYSTEM IMPLEMENTATION gr740_stream_aligner.others
@@ -1135,13 +1135,13 @@ SUBCOMPONENTS
     Taste::FS_Default_Value => "3.0";
   };
   includeOrocos : DATA DataView::Taste_directive {
-    Taste::FS_Default_Value => "compiler-option:""-I/root/esrocos_workspace/install/include/orocos/""";
+    Taste::FS_Default_Value => "compiler-option:""-I/home/taste/esrocos_workspace/install/include/orocos/""";
   };
   includeOthers : DATA DataView::Taste_directive {
-    Taste::FS_Default_Value => "compiler-option:""-I/root/esrocos_workspace/install/include/""";
+    Taste::FS_Default_Value => "compiler-option:""-I/home/taste/esrocos_workspace/install/include/""";
   };
   includeBoost : DATA DataView::Taste_directive {
-    Taste::FS_Default_Value => "compiler-option:""-I/root/esrocos_workspace/gr740/stream_aligner/boost_1_68_0/""";
+    Taste::FS_Default_Value => "compiler-option:""-I/home/taste/esrocos_workspace/gr740/stream_aligner/boost_1_68_0/""";
   };
 END gr740_stream_aligner.others;
 
@@ -1213,7 +1213,7 @@ FEATURES
 PROPERTIES
   Source_Language => (C);
   Taste::Active_Interfaces => any;
-  Source_Text => ("/root/esrocos_workspace/install/share/taste_components/dispatchers/rigidbodystatedispatcher.zip");
+  Source_Text => ("/home/taste/esrocos_workspace/install/share/taste_components/dispatchers/rigidbodystatedispatcher.zip");
 END RigidBodyStateDispatcher;
 
 SYSTEM IMPLEMENTATION RigidBodyStateDispatcher.others
@@ -1287,7 +1287,7 @@ FEATURES
 PROPERTIES
   Source_Language => (CPP);
   Taste::Active_Interfaces => any;
-  Source_Text => ("/root/esrocos_workspace/install/share/taste_components/dispatchers/markermux.zip");
+  Source_Text => ("/home/taste/esrocos_workspace/install/share/taste_components/dispatchers/markermux.zip");
 END markermux;
 
 SYSTEM IMPLEMENTATION markermux.others
