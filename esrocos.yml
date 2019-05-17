@@ -4,9 +4,11 @@ deps:
 - types/vizkit3d: ''
 - types/base: ''
 - types/controldev: ''
+- types/base_support: ''
 
 - drivers/taste/controldev: ''
 
 - plex/blsclient: ''
 - plex/pose_visualisation: ''
+- plex/fake_rover_lib: ''
 

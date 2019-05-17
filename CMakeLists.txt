@@ -32,7 +32,7 @@ esrocos_init()
 
 #uncomment if you want to add dependencies for the build process (only required in integration projects)
 esrocos_add_dependency(PARTITION remote
-	MODULES controldev eigen3 plex-pose_visualisation)
+	MODULES controldev eigen3 plex-pose_visualisation fake_rover_lib base_support)
 
 esrocos_add_dependency(PARTITION onboard
 	MODULES eigen3 )

@@ -1,5 +1,5 @@
 ---------------------------------------------------
--- AADL2.2
+-- AADL2.1
 -- TASTE type interfaceview
 -- 
 -- generated code: do not edit
@@ -74,7 +74,7 @@ END PI_update.others;
 
 SUBPROGRAM RI_commands
 FEATURES
-  sample : IN PARAMETER DataView::JoystickCommand {
+  cmd : IN PARAMETER DataView::JoystickCommand {
     Taste::encoding => NATIVE;
   };
 END RI_commands;
@@ -115,7 +115,7 @@ END interfaceview::IV::controldevice;
 PACKAGE interfaceview::IV::joystick_2_motion_command
 PUBLIC
 
-WITH interfaceview::IV::blsclient;
+WITH interfaceview::IV::fake_rover;
 WITH Taste;
 WITH DataView;
 WITH TASTE_IV_Properties;
@@ -135,7 +135,7 @@ END PI_commands.others;
 
 SUBPROGRAM RI_motion_commands
 FEATURES
-  sample : IN PARAMETER DataView::Base_commands_Motion2D {
+  mc : IN PARAMETER DataView::Base_commands_Motion2D {
     Taste::encoding => NATIVE;
   };
 END RI_motion_commands;
@@ -152,7 +152,7 @@ FEATURES
     Taste::Deadline => 0 ms;
     Taste::InterfaceName => "commands";
   };
-  RI_motion_commands : REQUIRES SUBPROGRAM ACCESS interfaceview::IV::blsclient::PI_motion_command.others {
+  RI_motion_commands : REQUIRES SUBPROGRAM ACCESS interfaceview::IV::fake_rover::PI_motion_command.others {
     Taste::coordinates => "95590 19214";
     Taste::RCMoperationKind => any;
     Taste::InterfaceName => "motion_commands";
@@ -182,7 +182,7 @@ END joystick_2_motion_command.others;
 
 END interfaceview::IV::joystick_2_motion_command;
 
-PACKAGE interfaceview::IV::blsclient
+PACKAGE interfaceview::IV::fake_rover
 PUBLIC
 
 WITH interfaceview::IV::vizkit3drobotpose;
@@ -191,7 +191,7 @@ WITH DataView;
 WITH TASTE_IV_Properties;
 SUBPROGRAM PI_motion_command
 FEATURES
-  mc : IN PARAMETER DataView::Base_commands_Motion2D {
+  cmd : IN PARAMETER DataView::Base_commands_Motion2D {
     Taste::encoding => NATIVE;
   };
 PROPERTIES
@@ -203,44 +203,38 @@ PROPERTIES
   Compute_Execution_Time => 0 ms .. 0 ms;
 END PI_motion_command.others;
 
-SUBPROGRAM RI_rigidBodyState
+SUBPROGRAM RI_updateRigidBodyState
 FEATURES
-  sample : IN PARAMETER DataView::Base_samples_RigidBodyState {
+  rbstate : IN PARAMETER DataView::Base_samples_RigidBodyState {
     Taste::encoding => NATIVE;
   };
-END RI_rigidBodyState;
+END RI_updateRigidBodyState;
 
-SUBPROGRAM IMPLEMENTATION RI_rigidBodyState.others
-END RI_rigidBodyState.others;
+SUBPROGRAM IMPLEMENTATION RI_updateRigidBodyState.others
+END RI_updateRigidBodyState.others;
 
-SYSTEM blsclient
+SYSTEM fake_rover
 FEATURES
-  PI_motion_command : PROVIDES SUBPROGRAM ACCESS interfaceview::IV::blsclient::PI_motion_command.others {
-    Taste::coordinates => "133349 20140";
+  PI_motion_command : PROVIDES SUBPROGRAM ACCESS interfaceview::IV::fake_rover::PI_motion_command.others {
+    Taste::coordinates => "139101 23682";
     Taste::RCMoperationKind => sporadic;
-    Taste::RCMperiod => 0 ms;
-    Taste::Deadline => 0 ms;
     Taste::InterfaceName => "motion_command";
   };
-  RI_rigidBodyState : REQUIRES SUBPROGRAM ACCESS interfaceview::IV::vizkit3drobotpose::PI_updateRigidBodyState.others {
-    Taste::coordinates => "166560 25907";
+  RI_updateRigidBodyState : REQUIRES SUBPROGRAM ACCESS interfaceview::IV::vizkit3drobotpose::PI_updateRigidBodyState.others {
+    Taste::coordinates => "179674 25305";
     Taste::RCMoperationKind => any;
-    Taste::InterfaceName => "rigidBodyState";
-    Taste::labelInheritance => "false";
+    Taste::InterfaceName => "updateRigidBodyState";
+    Taste::labelInheritance => "true";
   };
 PROPERTIES
   Source_Language => (CPP);
   Taste::Active_Interfaces => any;
-END blsclient;
+END fake_rover;
 
-SYSTEM IMPLEMENTATION blsclient.others
-SUBCOMPONENTS
-  compilerOption : DATA DataView::Taste_directive {
-    Taste::FS_Default_Value => "compiler-option:""-DOROCOS_TARGET=gnulinux -DDEBUG -DDUMMY""";
-  };
-END blsclient.others;
+SYSTEM IMPLEMENTATION fake_rover.others
+END fake_rover.others;
 
-END interfaceview::IV::blsclient;
+END interfaceview::IV::fake_rover;
 
 PACKAGE interfaceview::IV
 PUBLIC
@@ -248,7 +242,7 @@ PUBLIC
 WITH interfaceview::IV::vizkit3drobotpose;
 WITH interfaceview::IV::controldevice;
 WITH interfaceview::IV::joystick_2_motion_command;
-WITH interfaceview::IV::blsclient;
+WITH interfaceview::IV::fake_rover;
 WITH Taste;
 WITH DataView;
 WITH TASTE_IV_Properties;
@@ -272,18 +266,18 @@ SUBCOMPONENTS
   joystick_2_motion_command : SYSTEM interfaceview::IV::joystick_2_motion_command::joystick_2_motion_command.others {
     Taste::coordinates => "63668 16332 95590 38893";
   };
-  blsclient : SYSTEM interfaceview::IV::blsclient::blsclient.others {
-    Taste::coordinates => "133349 18711 166560 33798";
+  fake_rover : SYSTEM interfaceview::IV::fake_rover::fake_rover.others {
+    Taste::coordinates => "139101 20436 179674 43806";
   };
 CONNECTIONS
-  vizkit3drobotpose_PI_updateRigidBodyState_blsclient_RI_rigidBodyState : SUBPROGRAM ACCESS vizkit3drobotpose.PI_updateRigidBodyState -> blsclient.RI_rigidBodyState {
-    Taste::coordinates => "166560 25907 203046 25907 203046 30411 240776 30411";
+  vizkit3drobotpose_PI_updateRigidBodyState_fake_rover_RI_updateRigidBodyState : SUBPROGRAM ACCESS vizkit3drobotpose.PI_updateRigidBodyState -> fake_rover.RI_updateRigidBodyState {
+    Taste::coordinates => "179674 25305 210225 25305 210225 30411 240776 30411";
   };
   joystick_2_motion_command_PI_commands_controldevice_RI_commands : SUBPROGRAM ACCESS joystick_2_motion_command.PI_commands -> controldevice.RI_commands {
     Taste::coordinates => "25970 21901 42538 21901 42538 23481 63668 23481";
   };
-  blsclient_PI_motion_command_joystick_2_motion_command_RI_motion_commands : SUBPROGRAM ACCESS blsclient.PI_motion_command -> joystick_2_motion_command.RI_motion_commands {
-    Taste::coordinates => "95590 19214 113536 19214 113536 20140 133349 20140";
+  fake_rover_PI_motion_command_joystick_2_motion_command_RI_motion_commands : SUBPROGRAM ACCESS fake_rover.PI_motion_command -> joystick_2_motion_command.RI_motion_commands {
+    Taste::coordinates => "95590 19214 117345 19214 117345 23682 139101 23682";
   };
 END interfaceview.others;
 
@@ -291,6 +285,6 @@ PROPERTIES
   Taste::dataView => ("DataView");
   Taste::dataViewPath => ("tutorial-plex_dv.aadl");
   Taste::coordinates => "0 0 297000 210000";
-  Taste::version => "2.2";
+  Taste::version => "2.0";
 END interfaceview::IV;
 

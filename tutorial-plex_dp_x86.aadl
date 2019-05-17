@@ -29,7 +29,7 @@ PROPERTIES
   Taste::Interface_Coordinates => "82824 168664" APPLIES TO link;
   Deployment::Help => "Write your ASN.1 configuration here";
   Deployment::Configuration => "{devname ""lo"", address ""127.0.0.1"", port 5118}";
-  Deployment::Config => "/root/tool-inst/include/ocarina/runtime/polyorb-hi-c/src/drivers/configuration/ip.asn";
+  Deployment::Config => "/home/taste/tool-inst/include/ocarina/runtime/polyorb-hi-c/src/drivers/configuration/ip.asn";
   Deployment::Version => "0.1beta";
 END generic_sockets_ip_pohic;
 
@@ -63,7 +63,7 @@ PROPERTIES
   Taste::Interface_Coordinates => "82824 175849" APPLIES TO link;
   Deployment::Help => "Write your ASN.1 configuration here";
   Deployment::Configuration => "{devname ""lo"", address ""127.0.0.1"", port 5116}";
-  Deployment::Config => "/root/tool-inst/include/ocarina/runtime/polyorb-hi-c/src/drivers/configuration/ip.asn";
+  Deployment::Config => "/home/taste/tool-inst/include/ocarina/runtime/polyorb-hi-c/src/drivers/configuration/ip.asn";
   Deployment::Version => "0.1beta";
 END generic_sockets_ip_pohic;
 
