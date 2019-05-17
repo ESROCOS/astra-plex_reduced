@@ -1,18 +1,12 @@
 ASNACN_DIR: dataview/
 PROJECT_NAME: tutorial-plex
 deps:
+- types/vizkit3d: ''
 - types/base: ''
-- types/base_support: ''
 - types/controldev: ''
 
 - drivers/taste/controldev: ''
-- gr740/stream_aligner: ''
-- perception/aruco_marker_detection: ''
 
 - plex/blsclient: ''
-- plex/transformer: ''
 - plex/pose_visualisation: ''
 
-- tools/dispatchers: ''
-- tools/data_logger_components: ''
-- types/vizkit3d: ''
