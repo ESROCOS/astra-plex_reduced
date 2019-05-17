@@ -77,10 +77,10 @@ PACKAGE deploymentview::DV
 PUBLIC
 
 WITH interfaceview::IV::blsclient;
+WITH interfaceview::IV::vizkit3drobotpose;
 WITH ocarina_processors_x86;
 WITH deploymentview::DV::Node2;
 WITH interfaceview::IV::controldevice;
-WITH interfaceview::IV::vizkit3drobotpose;
 WITH interfaceview::IV::joystick_2_motion_command;
 WITH deploymentview::DV::Node3;
 WITH ocarina_buses;
@@ -98,6 +98,9 @@ SUBCOMPONENTS
   IV_blsclient : SYSTEM interfaceview::IV::blsclient::blsclient.others {
     Taste::FunctionName => "blsclient";
   };
+  IV_vizkit3drobotpose : SYSTEM interfaceview::IV::vizkit3drobotpose::vizkit3drobotpose.others {
+    Taste::FunctionName => "vizkit3drobotpose";
+  };
   onboard : PROCESS deploymentview::DV::Node2::onboard.others {
     Taste::coordinates => "218516 15310 254658 98304";
     Deployment::Port_Number => 0;
@@ -112,6 +115,7 @@ CONNECTIONS
   generic_sockets_ip_pohic_ip_i_link : BUS ACCESS generic_sockets_ip_pohic_ip_i -> generic_sockets_ip_pohic.link;
 PROPERTIES
   Taste::APLC_Binding => (reference (onboard)) APPLIES TO IV_blsclient;
+  Taste::APLC_Binding => (reference (onboard)) APPLIES TO IV_vizkit3drobotpose;
   Actual_Processor_Binding => (reference (x86_linux)) APPLIES TO onboard;
   Actual_Processor_Binding => (reference (x86_linux)) APPLIES TO generic_sockets_ip_pohic;
 END Node2.others;
@@ -125,9 +129,6 @@ SYSTEM IMPLEMENTATION Node3.others
 SUBCOMPONENTS
   IV_controldevice : SYSTEM interfaceview::IV::controldevice::controldevice.others {
     Taste::FunctionName => "controldevice";
-  };
-  IV_vizkit3drobotpose : SYSTEM interfaceview::IV::vizkit3drobotpose::vizkit3drobotpose.others {
-    Taste::FunctionName => "vizkit3drobotpose";
   };
   IV_joystick_2_motion_command : SYSTEM interfaceview::IV::joystick_2_motion_command::joystick_2_motion_command.others {
     Taste::FunctionName => "joystick_2_motion_command";
@@ -146,7 +147,6 @@ CONNECTIONS
   generic_sockets_ip_pohic_ip_i_link : BUS ACCESS generic_sockets_ip_pohic_ip_i -> generic_sockets_ip_pohic.link;
 PROPERTIES
   Taste::APLC_Binding => (reference (remote)) APPLIES TO IV_controldevice;
-  Taste::APLC_Binding => (reference (remote)) APPLIES TO IV_vizkit3drobotpose;
   Taste::APLC_Binding => (reference (remote)) APPLIES TO IV_joystick_2_motion_command;
   Actual_Processor_Binding => (reference (x86_linux)) APPLIES TO remote;
   Actual_Processor_Binding => (reference (x86_linux)) APPLIES TO generic_sockets_ip_pohic;
