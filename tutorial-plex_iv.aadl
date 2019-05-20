@@ -1,5 +1,5 @@
 ---------------------------------------------------
--- AADL2.1
+-- AADL2.2
 -- TASTE type interfaceview
 -- 
 -- generated code: do not edit
@@ -37,7 +37,7 @@ FEATURES
 PROPERTIES
   Source_Language => (CPP);
   Taste::Active_Interfaces => any;
-  Source_Text => ("/home/taste/esrocos_workspace/install/share/taste_components/plex-pose_visualisation/vizkit3drobotpose.zip");
+  Source_Text => ("/root/esrocos_workspace/install/share/taste_components/plex-pose_visualisation/vizkit3drobotpose.zip");
 END vizkit3drobotpose;
 
 SYSTEM IMPLEMENTATION vizkit3drobotpose.others
@@ -100,7 +100,7 @@ FEATURES
 PROPERTIES
   Source_Language => (CPP);
   Taste::Active_Interfaces => any;
-  Source_Text => ("/home/taste/esrocos_workspace/install/share/taste_components/controldev/controldevice.zip");
+  Source_Text => ("/root/esrocos_workspace/install/share/taste_components/controldev/controldevice.zip");
 END controldevice;
 
 SYSTEM IMPLEMENTATION controldevice.others
@@ -135,7 +135,7 @@ END PI_commands.others;
 
 SUBPROGRAM RI_motion_commands
 FEATURES
-  mc : IN PARAMETER DataView::Base_commands_Motion2D {
+  cmd : IN PARAMETER DataView::Base_commands_Motion2D {
     Taste::encoding => NATIVE;
   };
 END RI_motion_commands;
@@ -161,7 +161,7 @@ FEATURES
 PROPERTIES
   Source_Language => (CPP);
   Taste::Active_Interfaces => any;
-  Source_Text => ("/home/taste/esrocos_workspace/install/share/taste_components/controldev/joystick_2_motion_command.zip");
+  Source_Text => ("/root/esrocos_workspace/install/share/taste_components/controldev/joystick_2_motion_command.zip");
 END joystick_2_motion_command;
 
 SYSTEM IMPLEMENTATION joystick_2_motion_command.others
@@ -218,6 +218,8 @@ FEATURES
   PI_motion_command : PROVIDES SUBPROGRAM ACCESS interfaceview::IV::fake_rover::PI_motion_command.others {
     Taste::coordinates => "139101 23682";
     Taste::RCMoperationKind => sporadic;
+    Taste::RCMperiod => 0 ms;
+    Taste::Deadline => 0 ms;
     Taste::InterfaceName => "motion_command";
   };
   RI_updateRigidBodyState : REQUIRES SUBPROGRAM ACCESS interfaceview::IV::vizkit3drobotpose::PI_updateRigidBodyState.others {
@@ -285,6 +287,6 @@ PROPERTIES
   Taste::dataView => ("DataView");
   Taste::dataViewPath => ("tutorial-plex_dv.aadl");
   Taste::coordinates => "0 0 297000 210000";
-  Taste::version => "2.0";
+  Taste::version => "2.2";
 END interfaceview::IV;
 

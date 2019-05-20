@@ -1,8 +1,8 @@
 # Window (title, geometry)
 window:
-    title: taste-vizkit3d - body state visualization test
-    x: 200
-    y: 300
+    title: ASTRA Tutorial Session - Plex Reduced
+    x: 400
+    y: 600
 
 # 3D widget
 widget:
@@ -22,26 +22,8 @@ plugins:
           position: [1, 1, 1]
           rotation: [1, 0, 0, 0]
           # rotation quaternion in order [w, x, y, z]
-
-    - type: RigidBodyStateVisualization
-      name: mbs
-      modelPath: stim300.stl
-      enabled: False
-      frame:
-          base: world_osg
-          position: [1, 1, 10000]
-          rotation: [1, 0, 0, 0]
-          # rotation quaternion in order [w, x, y, z]
-    - type: RigidBodyStateVisualization
-      name: mbs2
-      modelPath: stim300.stl
-      enabled: False
-      frame:
-          base: world_osg
-          position: [1, 1, 10000]
-          rotation: [1, 0, 0, 0]
-          # rotation quaternion in order [w, x, y, z]
     - type: ModelVisualization
+      enabled: False
       modelPath: stim300.stl
 
     - type: GridVisualization

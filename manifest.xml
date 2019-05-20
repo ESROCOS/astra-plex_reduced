@@ -1,1 +1,1 @@
-<package><depend package="types/base" /><depend package="types/controldev" /><depend package="drivers/taste/controldev" /><depend package="plex/blsclient" /><depend package="plex/pose_visualisation" /></package>
+<package><depend package="types/vizkit3d" /><depend package="types/base" /><depend package="types/controldev" /><depend package="types/base_support" /><depend package="drivers/taste/controldev" /><depend package="plex/blsclient" /><depend package="plex/pose_visualisation" /><depend package="plex/fake_rover_lib" /></package>
