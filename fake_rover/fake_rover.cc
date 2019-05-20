@@ -19,7 +19,7 @@ void fake_rover_PI_motion_command(const asn1SccBase_commands_Motion2D *IN_cmd)
   base::commands::Motion2D cmd;
   base::samples::RigidBodyState rbs;
   asn1SccBase_commands_Motion2D_fromAsn1(cmd, *IN_cmd);
-  std::cout << "vel: " << cmd.translation << std::endl;
+  //std::cout << "vel: " << cmd.translation << std::endl;
   
   rov.setMotionCommand(cmd);
   rov.step(-1);
